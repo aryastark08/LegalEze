@@ -1,266 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="/style/styles.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>LegalEze</title>
-<!-- Include Tailwind CSS (You may need to adjust the path) -->
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>LegalEze</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
+  <section id="title">
+    <div class="">
+      <nav class="flex justify-between">
+        <a href="" class="brnd px-7 py-4 text-white">Legaleze</a>
 
-<section id="title">
-<div class="">
-
-<!-- navbar -->
-
-<nav class="flex justify-between">
-<a href="" class = "brnd px-7 py-4 text-white">Legaleze</a> 
-
-  <ul class="px-20 py-4 flex space-x-7 justify-end ">
-    <li class="text-white hover:text-black">Home</li>
-    <li class="text-white hover:text-black">Contact</li>
-    <li class="text-white hover:text-black">About</li>
-    <button  id="openPopupButton"   class="bg-white px-5 py-2 hover:bg-black hover:text-white rounded-full">Sign Up</button>
-  </ul>
-
-</nav>
-
-<!-- popup login form -->
-
-<div id="popupOverlay" class="popup-overlay">
-    
-    <div class="popup-content w-96">
-        <h2 class="text-2xl font-semibold mb-4">Login</h2>
-        <form>
-           
+        <ul class="px-20 py-4 flex space-x-7 justify-end ">
+          <li class="text-white hover:text-black">Home</li>
+          <li class="text-white hover:text-black">Contact</li>
+          <li class="text-white hover:text-black">About</li>
+          <button id="openPopupButton" class="bg-white px-5 py-2 hover:bg-black hover:text-white rounded-full">Sign
+            Up</button>
+        </ul>
+      </nav>
+      <div id="popupOverlay" class="popup-overlay">
+        <div class="popup-content w-96">
+          <h2 class="text-2xl font-semibold mb-4">Login</h2>
+          <form>
             <div class="mb-4">
-                <label for="username" class="block text-gray-700">Username</label>
-                <input type="text" id="username" class="w-full border rounded px-3 py-2" placeholder="Your username">
+              <label for="username" class="block text-gray-700">Username</label>
+              <input type="text" id="username" class="w-full border rounded px-3 py-2" placeholder="Your username">
             </div>
             <div class="mb-4">
-                <label for="password" class="block text-gray-700">Password</label>
-                <input type="password" id="password" class="w-full border rounded px-3 py-2" placeholder="Your password">
+              <label for="password" class="block text-gray-700">Password</label>
+              <input type="password" id="password" class="w-full border rounded px-3 py-2" placeholder="Your password">
             </div>
-            <button type="submit" class=" login-button w-full  bg-blue-700 hover:bg-blue-400 text-black font-bold py-2 px-4 rounded-full">Login</button>
-        </form>
-        <button id="closePopupButton" class=" close-button border border-black mt-4 w-full text-white  hover:bg-white hover:text-black font-bold py-2 px-4 rounded-full">Close</button>
+            <button type="submit"
+              class=" login-button w-full  bg-blue-700 hover:bg-blue-400 text-black font-bold py-2 px-4 rounded-full">Login</button>
+          </form>
+          <button id="closePopupButton"
+            class=" close-button border border-black mt-4 w-full text-white  hover:bg-white hover:text-black font-bold py-2 px-4 rounded-full">Close</button>
+        </div>
+      </div>
+      <script>
+      </script>
+      <div class="flex flex-col lg:flex-row pb-36">
+        <div class="lg:w-1/2 pt-10">
+          <h1 class="text-3xl lg:text-4xl text-center font-bold ml-6 pt-20">Get Easy Simplification And Translation For
+            Your Docs Here</h1>
+          <div class=" flex items-center justify-center">
+            <label for="fileInput"
+              class="mt-4 lg:mt-8 px-6 py-3 lg:px-8 lg:py-4 bg-black text-white text-lg lg:text-xl rounded-full hover:bg-white hover:text-black focus:outline-none focus:ring focus:ring-black cursor-pointer">
+              <i class="fas fa-upload mr-2"></i>Upload File
+            </label>
+            <input type="file" name="pdfFile" id="fileInput" class="hidden" accept=".pdf, .docx, .txt" action="/upload"
+              method="post" enctype="multipart/form-data" id="uploadForm">
+          </div>
+          <script>
+          </script>
+        </div>
+        <div class="lg:w-1/2">
+          <img src="./img/doc upload.png" alt="doc upload png" class="mx-auto mt-8 lg:mt-0 max-w-xs lg:max-w-full pt-10">
+        </div>
+      </div>
+  </section>
+  <div class="carousel-container relative">
+    <div class="carousel-slide active">
+      <img src="./img/easy to use.png" alt="Image 1" class="carousel-image ml-48 mt-14 mb-14">
+      <div class="carousel-description">Easy to Use</div>
     </div>
-</div>
+    <div class="carousel-slide">
+      <img src="./img/summary img.png" alt="Image 2" class="carousel-image ml-48 mt-14 mb-14">
+      <div class="carousel-description">Summarize</div>
+    </div>
+    <div class="carousel-slide">
+      <img src="./img/translation img 2.png" alt="Image 3" class="carousel-image ml-48 mt-14 mb-14">
+      <div class="carousel-description">Translate</div>
+    </div>
+    <button id="prevButton"
+      class="absolute left-0 top-1/2 transform -translate-y-1/2 p-2  text-black rounded-full shadow-md">&#60;</button>
+    <button id="nextButton"
+      class="absolute right-0 top-1/2 transform -translate-y-1/2 p-2  text-black rounded-full shadow-md">></button>
+  </div>
+  <section id="bottom">
 
-<script>
-    
+    <div class="flex flex-col md:flex-row items-center justify-center p-4 min-h-screen">
+      <div class="md:w-1/2 pb-5">
+        <h1 class="text-3xl lg:text-4xl text-center font-bold ml-6 mb-16 pt-20">Get Relevant Answers to your Questions
+        </h1>
+      </div>
+      <div class="faq">
+        <div class="question">
+          <h2>Question 1?</h2>
+          <div class="answer">
+            <p>This is the answer to question 1.</p>
+          </div>
+        </div>
+        <div class="question">
+          <h2>Question 2?</h2>
+          <div class="answer">
+            <p>This is the answer to question 2.</p>
+          </div>
+        </div>
+        <div class="question">
+          <h2>Question 3?</h2>
+          <div class="answer">
+            <p>This is the answer to question 3.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    const uploadForm = document.getElementById('uploadForm');
+    const fileInput = document.getElementById('fileInput');
+    uploadForm.addEventListener('submit', async (e) => {
+      const formData = new FormData();
+      formData.append('pdfFile', fileInput.files[0]);
+      try {
+        const response = await fetch('/upload', {
+          method: 'POST',
+          body: formData,
+        });
+        const urlParams = new URLSearchParams(window.location.search);
+        const pdfUrl = urlParams.get("pdf");
+        if (pdfUrl) {
+          console.log("PDF URL:", pdfUrl);
+        } else {
+          console.error("No PDF URL found in query parameters.");
+        }
+      }
+      catch (e) {
+        console.log(e.message)
+      }
+    });
     const openPopupButton = document.getElementById("openPopupButton");
     const closePopupButton = document.getElementById("closePopupButton");
     const popupOverlay = document.getElementById("popupOverlay");
-
-    openPopupButton.addEventListener("click", function() {
-        popupOverlay.style.display = "block";
+    openPopupButton.addEventListener("click", function () {
+      popupOverlay.style.display = "block";
     });
-
-    closePopupButton.addEventListener("click", function() {
-        popupOverlay.style.display = "none";
+    closePopupButton.addEventListener("click", function () {
+      popupOverlay.style.display = "none";
     });
-</script>
-
-
-<!-- title -->
-
-<div class="flex flex-col lg:flex-row pb-36">
-
-    <div class="lg:w-1/2 pt-10">
-      <h1 class="text-3xl lg:text-4xl text-center font-bold ml-6 pt-20">Get Easy Simplification And Translation For Your Docs Here</h1>
-    
-    <div class=" flex items-center justify-center">
-      <!-- <form action="/upload" method="post" enctype="multipart/form-data" id="uploadForm"> -->
-          <label for="fileInput" class="mt-4 lg:mt-8 px-6 py-3 lg:px-8 lg:py-4 bg-black text-white text-lg lg:text-xl rounded-full hover:bg-white hover:text-black focus:outline-none focus:ring focus:ring-black cursor-pointer">
-              <i class="fas fa-upload mr-2"></i>Upload File
-          </label>
-        <input type="file" name="pdfFile" id="fileInput" class="hidden" accept=".pdf, .docx, .txt" action="/upload" method="post" enctype="multipart/form-data" id="uploadForm">
-        <!-- <button type="submit">Upload PDF</button>
-      </form> -->
-  </div>
-
-  <script>
-    const uploadForm = document.getElementById('uploadForm');
-  const fileInput = document.getElementById('fileInput');
-
-  uploadForm.addEventListener('submit', async (e) => {
-    const formData = new FormData();
-    formData.append('pdfFile', fileInput.files[0]);
-
-    try {
-      const response = await fetch('/upload', {
-        method: 'POST',
-        body: formData,
-      });
-    
-    // JavaScript code to extract the PDF URL from the query parameter
-    const urlParams = new URLSearchParams(window.location.search);
-      const pdfUrl = urlParams.get("pdf");
-
-      if (pdfUrl) {
-        // Use the pdfUrl as needed, e.g., display it or process it
-        console.log("PDF URL:", pdfUrl);
-      } else {
-        console.error("No PDF URL found in query parameters.");
-      }
-    
-    }
-    catch(e){
-        console.log(e.message)
-    }});
-
-      
-      //     const data = await response.json();
-      //     const fileUrl = data.fileUrl;
-      
-      //     window.location.href = `/file.html?fileUrl=${encodeURIComponent(fileUrl)}`;
-      //   }  else {
-          //     console.error('File upload failed.');
-          //   }
-          // } catch (error) {
-              //   console.error('Error:', error);
-              // }
-              // JavaScript code to extract the PDF URL from the query parameter
-              // });
-</script>
-
-
-    </div>
-    
-    
-    <div class="lg:w-1/2">
-      <img src="/img/doc upload.png" alt="doc upload png" class="mx-auto mt-8 lg:mt-0 max-w-xs lg:max-w-full pt-10">
-    </div>
-</div>
-
-</section>
-
-<!-- features carousel -->
-  
-<div class="carousel-container relative">
-  <div class="carousel-slide active">
-      <img src="/img/easy to use.png" alt="Image 1" class="carousel-image ml-48 mt-14 mb-14">
-      <div class="carousel-description">Easy to Use</div>
-  </div>
-  <div class="carousel-slide">
-      <img src="/img/summary img.png" alt="Image 2" class="carousel-image ml-48 mt-14 mb-14">
-      <div class="carousel-description">Summarize</div>
-  </div>
-  <div class="carousel-slide">
-      <img src="/img/translation img 2.png" alt="Image 3" class="carousel-image ml-48 mt-14 mb-14">
-      <div class="carousel-description">Translate</div>
-  </div>
-  <!-- Add more slides as needed -->
-  
-  <button id="prevButton" class="absolute left-0 top-1/2 transform -translate-y-1/2 p-2  text-black rounded-full shadow-md">&#60;</button>
-  <button id="nextButton" class="absolute right-0 top-1/2 transform -translate-y-1/2 p-2  text-black rounded-full shadow-md">></button>
-</div>
-
-<script>
-// JavaScript code for the carousel
-const slides = document.querySelectorAll('.carousel-slide');
-const prevButton = document.getElementById('prevButton');
-const nextButton = document.getElementById('nextButton');
-let currentIndex = 0;
-
-function showSlide(index) {
-    slides.forEach((slide, i) => {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
+    let currentIndex = 0;
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
         slide.classList.remove('active');
         if (i === index) {
-            slide.classList.add('active');
+          slide.classList.add('active');
         }
-    });
-}
-
-function showNextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
-    showSlide(currentIndex);
-}
-
-function showPrevSlide() {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    showSlide(currentIndex);
-}
-
-nextButton.addEventListener('click', showNextSlide);
-prevButton.addEventListener('click', showPrevSlide);
-
-
-// Automatic timer for sliding
-setInterval(showNextSlide, 2000); // Slide every 3 seconds
-</script>
-
-
-
-
-
-<!-- bottom page -->
-
-<section id="bottom">
-    
-  
-  <!-- <div class="flex">
-    <h1 class="text-3xl lg:text-4xl text-center font-bold ml-6 pt-20 lg:w-1/2">Get relevant answers to your questions</h1>
-    </div>-->
-    
-    
-    <!-- <div class="w-80 relative flex items-center border rounded-lg border-gray-300 shadow-md">
-      <input type="text" placeholder="Send a message" class="w-80 py-2 px-3 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" />
-      <button class="absolute right-0 top-0 bottom-0 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-r-lg justify-end">
-         Send
-      </button>
-    </div> -->
-
-    <div class="flex flex-col md:flex-row items-center justify-center p-4 min-h-screen">
-      <!-- Left side text element -->
-      <div class="md:w-1/2 pb-5">
-          <h1 class="text-3xl lg:text-4xl text-center font-bold ml-6 mb-16 pt-20">Get Relevant Answers to your Questions</h1>
-      </div>
-      
-      <!-- Right side input text and send button -->
-      <!-- <div class="md:w-1/2 mt-4 md:mt-0 flex items-center">
-          <input type="text" placeholder="Type your message..." class="w-full py-2 px-3 border rounded-lg focus:outline-none focus:border-blue-500" />
-          <button class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-lg ml-2">
-              Send
-          </button>
-      </div> -->
-
-
-      <div class="faq">
-        <div class="question">
-            <h2>Question 1?</h2>
-            <div class="answer">
-                <p>This is the answer to question 1.</p>
-            </div>
-        </div>
-        <div class="question">
-            <h2>Question 2?</h2>
-            <div class="answer">
-                <p>This is the answer to question 2.</p>
-            </div>
-        </div>
-        <div class="question">
-            <h2>Question 3?</h2>
-            <div class="answer">
-                <p>This is the answer to question 3.</p>
-            </div>
-        </div>
-    </div>
-  </div>
-  
-    
-  
-
-</section>
-
-
-
+      });
+    }
+    function showNextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }
+    function showPrevSlide() {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      showSlide(currentIndex);
+    }
+    nextButton.addEventListener('click', showNextSlide);
+    prevButton.addEventListener('click', showPrevSlide);
+    setInterval(showNextSlide, 2000);
+  </script>
 
 </body>
+
 </html>

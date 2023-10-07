@@ -21,7 +21,7 @@ const client = new DiscussServiceClient({
 
 // Middleware to parse JSON request bodies
 app.use(express.json());
-app.use(cors());
+app.use(cors("*"));
 
 // Endpoint to upload a PDF file and process its text with PaLM
 app.post("/upload", upload.single("pdfFile"), async (req, res) => {
