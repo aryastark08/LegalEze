@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document Viewer</title>
+    <!-- Include Tailwind CSS (You may need to adjust the path) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style></style>
+  </head>
+  <body>
+    <div class="flex justify-between items-end">
+      <div class="w-1/2 h-screen">
+        <iframe
+          src=""
+          id="pdfViewer"
+          class="w-full h-full"
+          frameborder="0"
+        ></iframe>
+      </div>
+      <div class="w-1/2 h-screen">
+        <!-- Question input field -->
+          <input
+            type="text"
+            id="userPrompt"
+            class="mt-4 lg:mt-8 px-6 py-3 lg:px-8 lg:py-4 bg-black text-white text-lg lg:text-xl rounded-full hover:bg-white hover:text-black focus:outline-none focus:ring focus:ring-black"
+            placeholder="Ask a question"
+          />
+          <button
+            id="askButton"
+            class="ml-2 px-6 py-3 lg:px-8 lg:py-4 bg-black text-white text-lg lg:text-xl rounded-full hover:bg-white hover:text-black focus:outline-none focus:ring focus:ring-black cursor-pointer"
+          >
+            Ask
+          </button>
+        </div>
+        <!-- Display the simplified text here -->
+        <div id="simplifiedText" class="p-4 text-sm lg:text-base"></div>
+      </div>
+    </div>
+
+    <script>
+      const pdfViewer = document.getElementById("pdfViewer");
+      const userPrompt = document.getElementById("userPrompt");
+      const askButton = document.getElementById("askButton");
+      const simplifiedText = document.getElementById("simplifiedText");
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const fileUrl = urlParams.get("fileUrl");
+      pdfViewer.src = fileUrl;
+
+      askButton.addEventListener("click", async () => {
+        const prompt = userPrompt.value;
+
+        try {
+          const response = await fetch("/process", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ pdfUrl: fileUrl, prompt: prompt }),
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            const simplified = data.simplifiedText;
+            simplifiedText.textContent = simplified;
+          } else {
+            console.error("Failed to process the prompt.");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      });
+      // In these modified HTML files, we have integrated JavaScript code to handle file uploads and interactions bet
+      // Function to add a user message to the chat panel
+      function addUserMessage(message) {
+        const chatMessages = document.getElementById("chat-messages");
+        const userMessage = document.createElement("div");
+        userMessage.className = "chat-message";
+        userMessage.innerHTML = `${message}`;
+        chatMessages.appendChild(userMessage);
+      }
+
+      // Function to add a bot message to the chat panel
+      function addBotMessage(message) {
+        const chatMessages = document.getElementById("chat-messages");
+        const botMessage = document.createElement("div");
+        botMessage.className = "chat-message";
+        botMessage.innerHTML = ` ${message}`;
+        chatMessages.appendChild(botMessage);
+      }
+
+      // Function to handle user input
+      function handleUserInput() {
+        const userInput = document.getElementById("user-input");
+        const userMessage = userInput.value;
+
+        if (userMessage.trim() === "") {
+          return;
+        }
+
+        addUserMessage(userMessage);
+        userInput.value = ""; // Clear the input field
+
+        // Send the user message to the backend for processing
+        // Replace this with your actual backend integration
+        // Simulate a bot response for now
+        setTimeout(() => {
+          addBotMessage(botResponse);
+        }, 1000);
+      }
+
+      // Attach the user input handler to the "Send" button click event
+      const sendButton = document.getElementById("send-button");
+      sendButton.addEventListener("click", handleUserInput);
+
+      // Allow sending the message by pressing Enter
+      const userInput = document.getElementById("user-input");
+      userInput.addEventListener("keyup", function (event) {
+        if (event.key === "Enter") {
+          handleUserInput();
+        }
+      });
+    </script>
+  </body>
+</html>
