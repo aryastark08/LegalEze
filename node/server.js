@@ -50,7 +50,7 @@ app.post("/upload", upload.single("pdfFile"), async (req, res) => {
           temperature: 0.5,
           candidateCount: 1,
           prompt: {
-            context: `Simplify the text that follows and translate it into ${"Hindi"}.`,
+            context: "Simplify the text that follows.",
 
             messages: [{ content: text }],
           },
